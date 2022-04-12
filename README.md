@@ -29,3 +29,9 @@ However, I'll use named pipes for the FASTQ files to download + map on-the-fly, 
 ```bash
 minimap2 --sam-hit-only -t THREADS -a -x sr REF.MMI <(wget -qO- READ1.FASTQ.GZ.URL) <(wget -qO- READ2.FASTQ.GZ.URL) | samtools sort --threads THREADS -o SORTED.BAM
 ```
+
+Putting everything together, here's the looped command for doing everything:
+
+```bash
+for f in $(cat fastq/fastq_list.csv) ; do crr=$(echo $f | cut -d'/' -f6) && url1=$(echo $f | cut -d',' -f1) && url2=$(echo $f | cut -d',' -f2) && minimap2 --sam-hit-only -t 1 -a -x sr ref/NC_045512.2.fas.mmi <(wget -qO- "$url1") <(wget -qO- "$url2") 2> "bam/$crr.01.sorted.untrimmed.bam.log" | samtools sort --threads 1 -o "bam/$crr.01.sorted.untrimmed.bam" ; done
+```
