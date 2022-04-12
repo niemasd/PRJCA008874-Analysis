@@ -2,6 +2,6 @@ This repository contains a (re-)analysis of SARS-CoV-2 FASTQs from [PRJCA008874]
 
 # Input Data
 The FASTQ files from [PRJCA008874](https://ngdc.cncb.ac.cn/bioproject/browse/PRJCA008874) can be found here:
-* **HTTP:** https://download.cncb.ac.cn/gsa/CRA006587
-* **FTP:** ftp://download.big.ac.cn/gsa/CRA006587
+* **HTTP:** [https://download.cncb.ac.cn/gsa/CRA006587](https://download.cncb.ac.cn/gsa/CRA006587)
+* **FTP:** [ftp://download.big.ac.cn/gsa/CRA006587](ftp://download.big.ac.cn/gsa/CRA006587)
 * **Metadata:** [`CRA006587.xlsx`](data/CRA006587.xlsx)
