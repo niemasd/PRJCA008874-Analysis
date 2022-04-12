@@ -1,0 +1,8 @@
+[M::mm_idx_gen::0.001*1.58] collected minimizers
+[M::mm_idx_gen::0.003*1.74] sorted minimizers
+[M::main::0.004*1.53] loaded/built the index for 1 target sequence(s)
+[M::mm_idx_stat] kmer size: 15; skip: 10; is_hpc: 0; #seq: 1
+[M::mm_idx_stat::0.004*1.51] distinct minimizers: 5587 (99.93% are singletons); average occurrences: 1.004; average spacing: 5.332; total length: 29903
+[M::main] Version: 2.24-r1122
+[M::main] CMD: minimap2 -t 2 -d NC_045512.2.fas.mmi NC_045512.2.fas
+[M::main] Real time: 0.009 sec; CPU: 0.006 sec; Peak RSS: 0.004 GB
