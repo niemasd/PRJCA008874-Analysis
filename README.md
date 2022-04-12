@@ -1,0 +1,2 @@
+# PRJCA008874-Analysis
+Analysis of SARS-CoV-2 FASTQs from PRJCA008874
