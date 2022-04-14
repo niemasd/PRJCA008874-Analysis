@@ -1,3 +1,7 @@
+# ignore BAMs and/or SAMs (too big)
+*.bam
+*.sam
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
