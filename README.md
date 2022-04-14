@@ -51,3 +51,14 @@ Putting everything together, here's the looped command for doing everything:
 ```bash
 for f in $(cat fastq/fastq_list.csv) ; do crr=$(echo $f | cut -d'/' -f6) && url1=$(echo $f | cut -d',' -f1) && url2=$(echo $f | cut -d',' -f2) && minimap2 --sam-hit-only -t 1 -a -x sr ref/NC_045512.2.fas.mmi <(wget -qO- "$url1") <(wget -qO- "$url2") 2> "bam/$crr.01.sorted.untrimmed.bam.log" | samtools sort --threads 1 -o "bam/$crr.01.sorted.untrimmed.bam" ; done
 ```
+
+The resulting BAM files can be found in the [`data/bam`](data/bam) folder.
+
+## 1.3: Merging BAMs
+As can be seen in [Table: BioSamples](#table-biosamples), some BioSamples have multiple FASTQ pairs (and thus BAMs). However, for any downstream analyses, I wanted to merge all of the BAMs corresponding to a single BioSample into a single BAM file. The [`samtools merge`](http://www.htslib.org/doc/samtools-merge.html) command merges multiple sorted BAMs into a single sorted output BAM.
+
+```bash
+samtools merge -o OUTPUT.BAM INPUT1.BAM INPUT2.BAM ...
+```
+
+The resulting merged BAM files can be found in the [`data/merged_bam`](data/merged_bam) folder.
