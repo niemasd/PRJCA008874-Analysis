@@ -1,0 +1,26 @@
+[2022-04-14 23:03:45] Executing SamBamViz v0.0.4
+[2022-04-14 23:03:45] Input file: SAMC703649.02.sorted.trimmed.bam
+[2022-04-14 23:03:45] Output directory: ../sambamviz/SAMC703649.03.sambamviz.out
+[2022-04-14 23:03:45] Parsing input file...
+[2022-04-14 23:03:47] Finished parsing input file
+[2022-04-14 23:03:47] - Number of reads: 35120
+[2022-04-14 23:03:47]   - Unmapped: 0
+[2022-04-14 23:03:47]   - Mapped: 35120
+[2022-04-14 23:03:47]     - NC_045512.2: 35120
+[2022-04-14 23:03:47] - Average raw (unclipped) read length: 99.72334851936219
+[2022-04-14 23:03:47]   - Unmapped: N/A
+[2022-04-14 23:03:47]   - Mapped: 99.72334851936219
+[2022-04-14 23:03:47]     - NC_045512.2: 99.72334851936219
+[2022-04-14 23:03:47] - Average clipped read length: 87.27599658314351
+[2022-04-14 23:03:47]   - Unmapped: N/A
+[2022-04-14 23:03:47]   - Mapped: 87.27599658314351
+[2022-04-14 23:03:47]     - NC_045512.2: 87.27599658314351
+[2022-04-14 23:03:47] - Average insert size: 233.6324048646528
+[2022-04-14 23:03:47] - Average coverage: 98.6374321880651
+[2022-04-14 23:03:47]   - NC_045512.2: 98.6374321880651
+[2022-04-14 23:03:47] Writing nucleotide counts...
+[2022-04-14 23:03:47] Finished writing nucleotide counts
+[2022-04-14 23:03:47] Plotting read length distributions...
+[2022-04-14 23:03:48] Finished plotting read length distributions
+[2022-04-14 23:03:48] Plotting coverage...
+[2022-04-14 23:03:49] Finished plotting coverage
