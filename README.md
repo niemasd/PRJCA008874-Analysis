@@ -74,7 +74,7 @@ samtools sort --threads 1 -o SORTED_TRIMMED.BAM UNSORTED_TRIMMED.BAM
 The resulting trimmed BAM files can be found in the [`data/trimmed_bam`](data/trimmed_bam) folder.
 
 # 3: Calculating Coverage + Stats
-I'm using [SamBamViz v0.0.3](https://github.com/niemasd/SamBamViz/releases/tag/0.0.3) to compute various statistics and produce various visualizations from the trimmed BAMs. I'm using a minimum base quality score of 20 (`-q 20`) to match standard consensus calling approaches such as iVar Consensus.
+I'm using [SamBamViz v0.0.4](https://github.com/niemasd/SamBamViz/releases/tag/0.0.4) to compute various statistics and produce various visualizations from the trimmed BAMs. I'm using a minimum base quality score of 20 (`-q 20`) to match standard consensus calling approaches such as iVar Consensus.
 
 ```bash
 SamBamViz.py -i TRIMMED.BAM -o OUT_DIR -q 20 --ylog
