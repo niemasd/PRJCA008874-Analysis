@@ -77,7 +77,14 @@ The resulting trimmed BAM files can be found in the [`data/trimmed_bam`](data/tr
 I'm using [SamBamViz v0.0.4](https://github.com/niemasd/SamBamViz/releases/tag/0.0.4) to compute various statistics and produce various visualizations from the trimmed BAMs. I'm using a minimum base quality score of 20 (`-q 20`) to match standard consensus calling approaches such as iVar Consensus.
 
 ```bash
-SamBamViz.py -i TRIMMED.BAM -o OUT_DIR -q 20 --ylog
+SamBamViz.py -i TRIMMED_SORTED.BAM -o OUT_DIR -q 20 --ylog
 ```
 
 The resulting SamBamViz output files can be found in the [`data/sambamviz`](data/sambamviz) folder.
+
+# 4: Creating Pile-Ups
+I'm using [samtools v1.14](https://github.com/samtools/samtools/releases/tag/1.14) to create pile-up files from the trimmed BAMs. Because iVar Variants and Consensus read the pile-up from standard input anyways, I gzip the pile-up files to save space.
+
+```bash
+samtools mpileup -B -A -aa -d 0 -Q 0 --reference REF_GENOME.FASTA TRIMMED_SORTED.BAM | gzip -9 > PILEUP.TXT.GZ
+```
