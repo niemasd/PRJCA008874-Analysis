@@ -6,6 +6,20 @@ The FASTQ files from [PRJCA008874](https://ngdc.cncb.ac.cn/bioproject/browse/PRJ
 * **FTP:** [ftp://download.big.ac.cn/gsa/CRA006587](ftp://download.big.ac.cn/gsa/CRA006587)
 * **Metadata:** [`CRA006587.xlsx`](data/metadata/CRA006587.xlsx) ([Markdown](data/metadata/CRA006587.md))
 
+Here's a mapping of BioSample to various relevant IDs for convenience:
+
+|BioSample                                                        |Description        |Experiment Accession                                               |
+|-----------------------------------------------------------------|-------------------|-------------------------------------------------------------------|
+|[SAMC703641](https://ngdc.cncb.ac.cn/biosample/browse/SAMC703641)|WH19001 and WH19005|[CRX398523](https://ngdc.cncb.ac.cn/gsa/browse/CRA006587/CRX398523)|
+|[SAMC703642](https://ngdc.cncb.ac.cn/biosample/browse/SAMC703642)|WH19002            |[CRX398524](https://ngdc.cncb.ac.cn/gsa/browse/CRA006587/CRX398524)|
+|[SAMC703643](https://ngdc.cncb.ac.cn/biosample/browse/SAMC703643)|WH19004            |[CRX398525](https://ngdc.cncb.ac.cn/gsa/browse/CRA006587/CRX398525)|
+|[SAMC703644](https://ngdc.cncb.ac.cn/biosample/browse/SAMC703644)|WH19008            |[CRX398526](https://ngdc.cncb.ac.cn/gsa/browse/CRA006587/CRX398526)|
+|[SAMC703645](https://ngdc.cncb.ac.cn/biosample/browse/SAMC703645)|YS8011             |[CRX398527](https://ngdc.cncb.ac.cn/gsa/browse/CRA006587/CRX398527)|
+|[SAMC703646](https://ngdc.cncb.ac.cn/biosample/browse/SAMC703646)|WH01               |[CRX398528](https://ngdc.cncb.ac.cn/gsa/browse/CRA006587/CRX398528)|
+|[SAMC703647](https://ngdc.cncb.ac.cn/biosample/browse/SAMC703647)|WH02               |[CRX398529](https://ngdc.cncb.ac.cn/gsa/browse/CRA006587/CRX398529)|
+|[SAMC703648](https://ngdc.cncb.ac.cn/biosample/browse/SAMC703648)|WH03               |[CRX398530](https://ngdc.cncb.ac.cn/gsa/browse/CRA006587/CRX398530)|
+|[SAMC703649](https://ngdc.cncb.ac.cn/biosample/browse/SAMC703649)|WH04               |[CRX398531](https://ngdc.cncb.ac.cn/gsa/browse/CRA006587/CRX398531)|
+
 # 1: Mapping Reads + Sorting BAM
 I'm using [Minimap2 v2.24](https://github.com/lh3/minimap2/releases/tag/v2.24) to map reads against the [NC_045512.2](data/ref/NC_045512.2.fas) reference genome, piped to [samtools v1.14](https://github.com/samtools/samtools/releases/tag/1.14) to sort and output as BAM.
 
