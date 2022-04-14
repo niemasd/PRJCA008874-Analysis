@@ -1,4 +1,4 @@
-This repository contains a (re-)analysis of SARS-CoV-2 FASTQs from [PRJCA008874](https://ngdc.cncb.ac.cn/bioproject/browse/PRJCA008874) using the [SARS-CoV-2 analysis pipeline developed for UC San Diego's Return to Learn program](https://github.com/ucsd-ccbb/C-VIEW).
+This repository contains a (re-)analysis of SARS-CoV-2 FASTQs from [PRJCA008874](https://ngdc.cncb.ac.cn/bioproject/browse/PRJCA008874) ([Lu *et al*., The Lancet 2020](https://doi.org/10.1016/S0140-6736(20)30251-8)) using the SARS-CoV-2 analysis pipeline developed for UC San Diego's Return to Learn program ([C-VIEW](https://github.com/ucsd-ccbb/C-VIEW)).
 
 # 0: Input Data
 The FASTQ files from [PRJCA008874](https://ngdc.cncb.ac.cn/bioproject/browse/PRJCA008874) can be found here:
@@ -74,8 +74,10 @@ samtools sort --threads 1 -o SORTED_TRIMMED.BAM UNSORTED_TRIMMED.BAM
 The resulting trimmed BAM files can be found in the [`data/trimmed_bam`](data/trimmed_bam) folder.
 
 # 3: Calculating Coverage + Stats
-I'm using [SamBamViz v0.0.3](https://github.com/niemasd/SamBamViz/releases/tag/0.0.3) to compute various statistics and produce various visualizations from the trimmed BAMs. I'm using a minimum base quality score of 20 (`-q 20`) to match standard consensus calling approaches such as iVar Consensus.
+I'm using [SamBamViz v0.0.4](https://github.com/niemasd/SamBamViz/releases/tag/0.0.4) to compute various statistics and produce various visualizations from the trimmed BAMs. I'm using a minimum base quality score of 20 (`-q 20`) to match standard consensus calling approaches such as iVar Consensus.
 
 ```bash
 SamBamViz.py -i TRIMMED.BAM -o OUT_DIR -q 20 --ylog
 ```
+
+The resulting SamBamViz output files can be found in the [`data/sambamviz`](data/sambamviz) folder.
