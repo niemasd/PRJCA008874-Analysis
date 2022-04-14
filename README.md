@@ -79,3 +79,5 @@ I'm using [SamBamViz v0.0.3](https://github.com/niemasd/SamBamViz/releases/tag/0
 ```bash
 SamBamViz.py -i TRIMMED.BAM -o OUT_DIR -q 20 --ylog
 ```
+
+The resulting SamBamViz output files can be found in the [`data/sambamviz`](data/sambamviz) folder.
