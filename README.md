@@ -70,3 +70,5 @@ I'm using [iVar Trim v1.3.1](https://github.com/andersen-lab/ivar/releases/tag/v
 ivar trim -e -i SORTED_UNTRIMMED.BAM -p UNSORTED_TRIMMED_PREFIX
 samtools sort --threads 1 -o SORTED_TRIMMED.BAM UNSORTED_TRIMMED.BAM
 ```
+
+The resulting trimmed BAM files can be found in the [`data/trimmed_bam`](data/trimmed_bam) folder.

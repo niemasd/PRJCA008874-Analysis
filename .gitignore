@@ -1,5 +1,6 @@
 # ignore BAMs and/or SAMs (too big)
 *.bam
+*.bai
 *.sam
 
 # Byte-compiled / optimized / DLL files
