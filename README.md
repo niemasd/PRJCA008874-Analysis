@@ -62,3 +62,10 @@ samtools merge -o OUTPUT.BAM INPUT1.BAM INPUT2.BAM ...
 ```
 
 The resulting merged BAM files can be found in the [`data/merged_bam`](data/merged_bam) folder.
+
+# 2: Trimming BAMs + Sorting Trimmed BAMs
+I'm using [iVar Trim v1.3.1](https://github.com/andersen-lab/ivar/releases/tag/v1.3.1) to quality trim the mapped reads, and I then used [samtools v1.14](https://github.com/samtools/samtools/releases/tag/1.14) to sort the trimmed BAMs.
+
+```bash
+ivar trim -e -i SORTED_UNTRIMMED.BAM -p SORTED_TRIMMED_PREFIX
+```
