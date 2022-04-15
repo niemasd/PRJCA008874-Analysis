@@ -88,3 +88,5 @@ I'm using [samtools v1.14](https://github.com/samtools/samtools/releases/tag/1.1
 ```bash
 samtools mpileup -B -A -aa -d 0 -Q 0 --reference REF_GENOME.FASTA TRIMMED_SORTED.BAM | gzip -9 > PILEUP.TXT.GZ
 ```
+
+The resulting pile-up files can be found in the [`data/pileup`](data/pileup) folder.
