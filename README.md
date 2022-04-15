@@ -34,7 +34,7 @@ minimap2 -t 2 -d NC_045512.2.fas.mmi NC_045512.2.fas > NC_045512.2.fas.mmi.log 2
 * **Log:** [`NC_045512.2.fas.mmi.log`](data/ref/NC_045512.2.fas.mmi.log)
 
 ## 1.2: Map Reads
-Some of the files are quite huge, so rather than downloading them locally, I will map reads on-the-fly *while* downloading. For convenience, I have created a CSV file containing the FASTQ FTP paths ([`fastq_list.csv`](data/fastq/fastq_list.csv)). The individual Minimap2 command is as follows:
+Some of the FASTQ files are quite huge, so rather than downloading them locally, I will map reads on-the-fly *while* downloading. For convenience, I have created a CSV file containing the FASTQ FTP paths ([`fastq_list.csv`](data/fastq/fastq_list.csv)). The individual Minimap2 command is as follows:
 
 ```bash
 minimap2 -t THREADS -a -x sr REF.MMI READ1.FASTQ.GZ READ2.FASTQ.GZ | samtools sort --threads THREADS -o SORTED.BAM
