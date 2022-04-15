@@ -118,6 +118,6 @@ zcat PILEUP.TXT.GZ | ivar consensus -m 10 -n N -t 0.5 -p OUT_PREFIX
 * `-m 10` means "minimum read depth to call a base in the consensus sequence = 10 reads"
 * `-t 0.5` means "a single base must show up in at least 50% of the reads covering a given position to show up in the consensus"
 * `-n N` means "use the letter `N` to denote ambiguous positions (i.e., positions in which we were unable to call a base)"
-  * To clarify, a position in the consensus sequence can be `N` if (1) it had a coverage of less than 10, or (2) if it had a coverage of greater than 10 but none of the 4 possible bases had a frequency greater than or equal to 0.5
+  * To clarify, a position in the consensus sequence can be `N` if (1) it had a coverage of less than 10, or (2) it had a coverage of greater than 10 but none of the 4 possible bases had a frequency greater than or equal to 0.5
 
 The resulting consensus sequences can be found in the [`data/consensus`](data/consensus) folder.
