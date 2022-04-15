@@ -64,7 +64,7 @@ samtools merge -o OUTPUT.BAM INPUT1.BAM INPUT2.BAM ...
 The resulting merged BAM files can be found in the [`data/merged_bam`](data/merged_bam) folder.
 
 # 2: Trimming BAMs + Sorting Trimmed BAMs
-I'm using [iVar Trim v1.3.1](https://github.com/andersen-lab/ivar/releases/tag/v1.3.1) to quality trim the mapped reads, and I then used [samtools v1.14](https://github.com/samtools/samtools/releases/tag/1.14) to sort the trimmed BAMs.
+I'm using [iVar v1.3.1](https://github.com/andersen-lab/ivar/releases/tag/v1.3.1) to quality trim the mapped reads, and I then used [samtools v1.14](https://github.com/samtools/samtools/releases/tag/1.14) to sort the trimmed BAMs.
 
 ```bash
 ivar trim -e -i SORTED_UNTRIMMED.BAM -p UNSORTED_TRIMMED_PREFIX
@@ -90,3 +90,10 @@ samtools mpileup -B -A -aa -d 0 -Q 0 --reference REF_GENOME.FASTA TRIMMED_SORTED
 ```
 
 The resulting pile-up files can be found in the [`data/pileup`](data/pileup) folder.
+
+# 5: Calling Variants
+I'm using [iVar v1.3.1](https://github.com/andersen-lab/ivar/releases/tag/v1.3.1) to call variants.
+
+```bash
+zcat PILEUP.TXT.GZ | ivar variants -r REF_GENOME.FASTA -g REF_GENOME.GFF -p VARIANTS.TSV -m 10
+```
