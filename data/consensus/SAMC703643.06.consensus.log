@@ -1,0 +1,7 @@
+Minimum Quality: 20
+Threshold: 0.5
+Minimum depth: 10
+Regions with depth less than minimum depth covered by: N
+Reference length: 29903
+Positions with 0 depth: 75
+Positions with depth below 10: 197
