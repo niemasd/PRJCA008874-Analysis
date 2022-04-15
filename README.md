@@ -95,10 +95,14 @@ The resulting pile-up files can be found in the [`data/pileup`](data/pileup) fol
 I'm using [iVar v1.3.1](https://github.com/andersen-lab/ivar/releases/tag/v1.3.1) to call variants.
 
 ```bash
-zcat PILEUP.TXT.GZ | ivar variants -r REF_GENOME.FASTA -g REF_GENOME.GFF -p VARIANTS.TSV -m 10
+zcat PILEUP.TXT.GZ | ivar variants -m 10 -r REF_GENOME.FASTA -g REF_GENOME.GFF -p VARIANTS.TSV
 ```
 
 The resulting variant TSV files can be found in the [`data/variants`](data/variants) folder.
 
 # 6: Calling Consensus Sequences
 I'm using [iVar v1.3.1](https://github.com/andersen-lab/ivar/releases/tag/v1.3.1) to call consensus sequences.
+
+```bash
+zcat PILEUP.TXT.GZ | ivar consensus -m 10 -n N -t 0.5 -p OUT_PREFIX
+```
