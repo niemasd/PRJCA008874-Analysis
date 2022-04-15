@@ -97,3 +97,8 @@ I'm using [iVar v1.3.1](https://github.com/andersen-lab/ivar/releases/tag/v1.3.1
 ```bash
 zcat PILEUP.TXT.GZ | ivar variants -r REF_GENOME.FASTA -g REF_GENOME.GFF -p VARIANTS.TSV -m 10
 ```
+
+The resulting variant TSV files can be found in the [`data/variants`](data/variants) folder.
+
+# 6: Calling Consensus Sequences
+I'm using [iVar v1.3.1](https://github.com/andersen-lab/ivar/releases/tag/v1.3.1) to call consensus sequences.
