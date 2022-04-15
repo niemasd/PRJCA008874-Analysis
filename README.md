@@ -106,3 +106,5 @@ I'm using [iVar v1.3.1](https://github.com/andersen-lab/ivar/releases/tag/v1.3.1
 ```bash
 zcat PILEUP.TXT.GZ | ivar consensus -m 10 -n N -t 0.5 -p OUT_PREFIX
 ```
+
+The resulting consensus sequences can be found in the [`data/consensus`](data/consensus) folder.
