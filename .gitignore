@@ -1,6 +1,9 @@
-# ignore BAMs and/or SAMs (too big)
-*.bam
+# Niema's additions
 *.bai
+*.bam
+*.fai
+*.pileup.txt
+*.pileup.txt.gz
 *.sam
 
 # Byte-compiled / optimized / DLL files
