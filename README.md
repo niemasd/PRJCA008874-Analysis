@@ -39,6 +39,8 @@ Some of the files are quite huge, so rather than downloading them locally, I wil
 ```bash
 minimap2 -t THREADS -a -x sr REF.MMI READ1.FASTQ.GZ READ2.FASTQ.GZ | samtools sort --threads THREADS -o SORTED.BAM
 ```
+* `-a` means "output in the SAM format"
+* `-x sr` means "use Minimap2's genomic short-read mapping preset"
 
 However, I'll use named pipes for the FASTQ files to download + map on-the-fly, and I'll throw out unmapped reads (via Minimap2's `--sam-hit-only` flag):
 
@@ -70,6 +72,7 @@ I'm using [iVar v1.3.1](https://github.com/andersen-lab/ivar/releases/tag/v1.3.1
 ivar trim -e -i SORTED_UNTRIMMED.BAM -p UNSORTED_TRIMMED_PREFIX
 samtools sort --threads 1 -o SORTED_TRIMMED.BAM UNSORTED_TRIMMED.BAM
 ```
+* `-e` means "include reads without primers" (we're not trimming primers, as there were no primers to trim)
 
 The resulting trimmed BAM files can be found in the [`data/trimmed_bam`](data/trimmed_bam) folder.
 
@@ -88,6 +91,11 @@ I'm using [samtools v1.14](https://github.com/samtools/samtools/releases/tag/1.1
 ```bash
 samtools mpileup -B -A -aa -d 0 -Q 0 --reference REF_GENOME.FASTA TRIMMED_SORTED.BAM | gzip -9 > PILEUP.TXT.GZ
 ```
+* `-B` means "disable BAQ (per-base alignment quality)"
+* `-A` means "count orphans (do not discount anomalous read pairs)"
+* `-aa` means "output absolutely all positions, including unused reference sequences"
+* `-d 0` means "don't cap the per-file depth"
+* `-Q 0` means "skip bases with less than 0 base quality (i.e., don't skip any bases based on base quality)"
 
 The resulting pile-up files can be found in the [`data/pileup`](data/pileup) folder.
 
@@ -97,6 +105,7 @@ I'm using [iVar v1.3.1](https://github.com/andersen-lab/ivar/releases/tag/v1.3.1
 ```bash
 zcat PILEUP.TXT.GZ | ivar variants -m 10 -r REF_GENOME.FASTA -g REF_GENOME.GFF -p VARIANTS.TSV
 ```
+* `-m 10` means "minimum read depth to call a variant = 10 reads"
 
 The resulting variant TSV files can be found in the [`data/variants`](data/variants) folder.
 
@@ -106,5 +115,9 @@ I'm using [iVar v1.3.1](https://github.com/andersen-lab/ivar/releases/tag/v1.3.1
 ```bash
 zcat PILEUP.TXT.GZ | ivar consensus -m 10 -n N -t 0.5 -p OUT_PREFIX
 ```
+* `-m 10` means "minimum read depth to call a base in the consensus sequence = 10 reads"
+* `-t 0.5` means "a single base must show up in at least 50% of the reads covering a given position to show up in the consensus"
+* `-n N` means "use the letter `N` to denote ambiguous positions (i.e., positions in which we were unable to call a base)"
+  * To clarify, a position in the consensus sequence can be `N` if (1) it had a coverage of less than 10, or (2) if it had a coverage of greater than 10 but none of the 4 possible bases had a frequency greater than or equal to 0.5
 
 The resulting consensus sequences can be found in the [`data/consensus`](data/consensus) folder.
