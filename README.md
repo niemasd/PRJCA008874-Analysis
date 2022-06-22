@@ -123,3 +123,11 @@ zcat PILEUP.TXT.GZ | ivar consensus -m 10 -n N -t 0.5 -p OUT_PREFIX
   * To clarify, a position in the consensus sequence can be `N` if (1) it had a coverage of less than 10, or (2) it had a coverage of greater than 10 but none of the 4 possible bases had a frequency greater than or equal to 0.5
 
 The resulting consensus sequences can be found in the [`data/consensus`](data/consensus) folder.
+
+# Miscellaneous Comments
+## Low Coverage After Trimming
+As mentioned at the beginning of this document, this analysis was conducted using the [C-VIEW](https://github.com/ucsd-ccbb/C-VIEW) pipeline developed for UC San Diego's Return to Learn program, which uses [iVar Trim](https://andersen-lab.github.io/ivar/html/manualpage.html) to perform trimming. If you suspect that iVar Trim might be trimming the reads to aggressively, rather than skipping quality trimming entirely (which is objectively a bad idea), I would recommend trying a different read trimmer.
+
+One popular option is [fastp](https://github.com/OpenGene/fastp). Note that fastp (and many other read trimmers) trim FASTQ files *before* read mapping (whereas iVar Trim trims BAM files *after* read mapping). As such, if you want to try out a read trimmer that trims FASTQ files (rather than BAM files), you will need to convert the [merged untrimmed BAM files](data/merged_bam) back into FASTQ files, e.g. using [`bamtofastq`](https://bedtools.readthedocs.io/en/latest/content/tools/bamtofastq.html). The FASTQ files you will get from using `bamtofastq` on the merged untrimmed BAM files will be much smaller than the [original FASTQ files](https://download.cncb.ac.cn/gsa/CRA006587) because the converted FASTQ files will only contain mapped reads (because the BAM files only contain mapped reads).
+
+After you have converted the untrimmed BAM files into FASTQ files and then trimmed the FASTQ files using fastp (or whichever read trimmer you choose), you will need to remap the trimmed FASTQ files to the reference genome (as described in [Step 1](#1-mapping-reads--sorting-bam); this should be quite fast), which will result in trimmed BAM files. You will then be able to pick up the rest of the analysis starting at [Step 3](#3-calculating-coverage--stats).
