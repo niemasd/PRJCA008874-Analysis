@@ -65,6 +65,8 @@ samtools merge -o OUTPUT.BAM INPUT1.BAM INPUT2.BAM ...
 
 The resulting merged BAM files can be found in the [`data/merged_bam`](data/merged_bam) folder.
 
+**Note:** A [preprint](https://doi.org/10.5281/zenodo.6672912) was released in June 2022 in which the authors called consensus sequences (and downstream analyses on the consensus sequences, e.g. phylogenetic inference, tree dating) using the **untrimmed** BAMs from this repo. This is a technical Bioinformatics mistake: BAM files need to be **trimmed** in order to remove low-quality bases (which we will do in [Step 2](#2-trimming-bams--sorting-trimmed-bams)) ***prior*** to any downstream analyses. Trimming is an important Quality Control (QC) step in any sequence data analysis, something [I explained to the authors](https://github.com/niemasd/PRJCA008874-Analysis/issues/1#issuecomment-1152525690). If you want to learn more about read trimming and why QC is so important in sequence data analysis, [this Galaxy tutorial](https://training.galaxyproject.org/training-material/topics/sequence-analysis/tutorials/quality-control/tutorial.html) is an excellent resource.
+
 # 2: Trimming BAMs + Sorting Trimmed BAMs
 I'm using [iVar v1.3.1](https://github.com/andersen-lab/ivar/releases/tag/v1.3.1) to quality trim the mapped reads, and I'm using [samtools v1.14](https://github.com/samtools/samtools/releases/tag/1.14) to sort the trimmed BAMs.
 
